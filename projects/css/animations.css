@@ -1,0 +1,165 @@
+/* =====================================
+   animations.css
+   Premium micro‑interactions & motions
+===================================== */
+
+/* ---------- Keyframes ---------- */
+
+/* subtle float (badge / icon / CTA) */
+@keyframes float-soft {
+  0%, 100% {
+    transform: translateY(2px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* pulse glow (buttons / badges) */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.65);
+  }
+  50% {
+    box-shadow: 0 0 0 18px rgba(16, 185, 129, 0);
+  }
+}
+
+/* gradient shimmer for loader / overlay texts */
+@keyframes shimmer {
+  0% {
+    background-position: -120% 0;
+  }
+  100% {
+    background-position: 220% 0;
+  }
+}
+
+/* fade + slide up (used by .reveal-visible base class from style.css) */
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* page overlay opening (for route change / initial load) */
+@keyframes page-reveal {
+  0% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+}
+
+/* image zoom‑in on hover */
+@keyframes zoom-in-soft {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.06);
+  }
+}
+
+/* testimonial auto‑slider (optional, if JS toggles classes) */
+@keyframes testimonial-in {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ---------- Helper animation classes ---------- */
+
+/* apply to any element you want softly floating */
+.anim-float-soft {
+  animation: float-soft 5s ease-in-out infinite;
+}
+
+/* apply to CTA buttons / trust badges */
+.anim-pulse-glow {
+  animation: pulse-glow 2.6s ease-out infinite;
+}
+
+/* optional: for headings that want stronger entrance */
+.reveal-visible-strong {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  animation: fade-up 700ms ease forwards;
+}
+
+/* gallery item outer glow */
+.gallery-item.anim-glow:hover::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.25), transparent 70%);
+  pointer-events: none;
+}
+
+/* hero background gradient shimmer (if you add .hero-bg class) */
+.hero-bg-animated {
+  background-image: linear-gradient(
+    120deg,
+    rgba(16, 185, 129, 0.16),
+    rgba(56, 189, 248, 0.22),
+    rgba(251, 191, 36, 0.15)
+  );
+  background-size: 220% 220%;
+  animation: shimmer 12s linear infinite;
+}
+
+/* testimonial cards when active */
+.testimonial-active {
+  animation: testimonial-in 650ms ease forwards;
+}
+
+/* Back‑to‑top entrance */
+.back-to-top.show {
+  animation: fade-up 320ms ease forwards;
+}
+
+/* Page transition overlay (same .page-transition div from style.css) */
+.page-transition--enter {
+  transform-origin: top;
+  animation: page-reveal 600ms cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+/* Cursor hover highlight (for luxury feel on important cards) */
+.cursor-highlight {
+  position: relative;
+  overflow: hidden;
+}
+.cursor-highlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+      rgba(255, 255, 255, 0.26),
+      transparent 55%);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+.cursor-highlight:hover::after {
+  opacity: 1;
+}
+
+/* small delay utilities for staggered reveals */
+.delay-1 { animation-delay: 0.08s; }
+.delay-2 { animation-delay: 0.16s; }
+.delay-3 { animation-delay: 0.24s; }
+.delay-4 { animation-delay: 0.32s; }

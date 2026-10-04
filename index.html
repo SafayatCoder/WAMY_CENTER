@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wamy Center Bangladesh | Official NGO Website</title>
+  <meta name="description" content="Wamy Center Bangladesh is a humanitarian NGO working in education, health, food, and rehabilitation.">
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="projects/css/style.css" rel="stylesheet" />
+  <link href="projects/css/gallery.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --green: #1a7c4a;
+      --green-light: #26a65b;
+      --green-dark: #0f5433;
+      --gold: #c8922a;
+      --gold-light: #e8b84b;
+      --cream: #faf8f3;
+      --white: #ffffff;
+      --text-dark: #1a1a2e;
+      --text-mid: #3d3d5c;
+      --text-light: #6b7280;
+      --border: rgba(26,124,74,0.15);
+      --shadow: 0 8px 32px rgba(26,124,74,0.12);
+      --shadow-lg: 0 20px 60px rgba(26,124,74,0.18);
+      --radius: 16px;
+      --radius-lg: 24px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ========== NAVBAR ========== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--green);
+      box-shadow: 0 2px 20px rgba(26,124,74,0.1);
+      height: 72px;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      cursor: pointer;
+    }
+
+    .brand img { height: 46px; }
+
+    .brand-text span {
+      display: block;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--green-dark);
+      letter-spacing: 0.01em;
+    }
+
+    .brand-text span:last-child {
+      font-size: 0.7rem;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    nav { display: flex; align-items: center; }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text-mid);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 0.4rem 0.75rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    nav a:hover { color: var(--green); background: rgba(26,124,74,0.07); }
+
+    .nav-dropdown { position: relative; }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      min-width: 240px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      padding: 0.5rem;
+      list-style: none;
+      z-index: 100;
+    }
+
+    .nav-dropdown.open .dropdown-menu { display: block; }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.86rem;
+      color: var(--text-mid);
+      white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover { background: rgba(26,124,74,0.08); color: var(--green); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--green-dark);
+      padding: 0.4rem;
+    }
+
+    @media (min-width: 993px) {
+      .nav-dropdown:hover .dropdown-menu,
+      .nav-dropdown:focus-within .dropdown-menu {
+        display: block;
+      }
+      .nav-dropdown::after {
+        content: '';
+        position: absolute;
+        left: 0; right: 0;
+        top: 100%;
+        height: 8px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .nav-toggle { display: block; }
+      nav {
+        position: fixed;
+        top: 72px; left: -100%; width: 100%; height: calc(100vh - 72px);
+        background: #fff;
+        flex-direction: column;
+        transition: 0.35s ease;
+        padding-top: 1.5rem;
+        z-index: 999;
+        align-items: flex-start;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+        overflow-y: auto;
+      }
+      nav.open { left: 0; }
+      nav ul { flex-direction: column; width: 100%; gap: 0; padding: 0 1rem; }
+      nav ul li { width: 100%; }
+      nav a { display: block; padding: 0.8rem 1rem; border-bottom: 1px solid var(--border); border-radius: 0; }
+      .nav-dropdown .dropdown-menu {
+        position: static; transform: none; box-shadow: none;
+        border: none; border-left: 3px solid var(--green);
+        margin-left: 1rem; min-width: unset;
+        background: var(--cream);
+      }
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      padding-top: 72px;
+      background: linear-gradient(160deg, #0f5433 0%, #1a7c4a 40%, #26a65b 100%);
+      position: relative;
+      overflow: hidden;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: var(--cream);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding: 4rem 0 6rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; padding: 2rem 0 5rem; }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.8rem;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 999px;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      box-shadow: 0 0 8px var(--gold-light);
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.2;
+      color: #fff;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-title span {
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 30rem;
+      margin-bottom: 1.8rem;
+    }
+
+    @media (max-width: 768px) { .hero-sub { margin: 0 auto 1.8rem; } }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    @media (max-width: 768px) { .hero-actions { justify-content: center; } }
+
+    .btn-primary {
+      padding: 0.75rem 1.8rem;
+      background: var(--gold);
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 20px rgba(200,146,42,0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(200,146,42,0.5);
+    }
+
+    .btn-ghost {
+      padding: 0.75rem 1.8rem;
+      background: transparent;
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 2px solid rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .hero-visual img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      border: 3px solid rgba(255,255,255,0.2);
+    }
+
+    /* ===== HERO SLIDER (NEW) ===== */
+    .hero-visual { overflow: visible; }
+
+    .hero-slider {
+      position: relative;
+      width: 100%;
+      /* same size as before */
+      transform: scaleX(1.35) scaleY(1.55);
+      transform-origin: center;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      border: 3px solid rgba(255,255,255,0.2);
+    }
+
+    /* every slide fills the box */
+    .hero-slider .hero-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    /* first image keeps its natural size (like the old single image) and decides the box height */
+    .hero-slider .hero-slide.base {
+      position: relative;
+      height: auto;
+    }
+
+    .hero-slider .hero-slide.active { opacity: 1; }
+
+    .hero-dots {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      /* cancel the stretch so dots stay round */
+      transform: translateX(-50%) scale(0.74, 0.645);
+      display: flex;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    .hero-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .hero-dot.active {
+      background: var(--gold-light);
+      width: 24px;
+      border-radius: 999px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) { .hero-stats { justify-content: center; } }
+
+    .hero-stat-item {
+      text-align: center;
+    }
+
+    .hero-stat-num {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 0.2rem;
+    }
+
+    /* ========== ABOUT / HISTORY ========== */
+    .about {
+      padding: 5rem 0;
+      background: var(--cream);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+
+    .section-title span { color: var(--green); }
+
+    .about-body p {
+      color: var(--text-mid);
+      font-size: 0.96rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-highlight {
+      background: linear-gradient(135deg, var(--green), var(--green-light));
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      margin-top: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-highlight::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px; left: 10px;
+      font-size: 5rem;
+      opacity: 0.15;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .about-highlight p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.92);
+      position: relative;
+    }
+
+    .about-highlight .author {
+      font-weight: 700;
+      color: var(--gold-light);
+      font-size: 0.85rem;
+      margin-top: 0.6rem;
+      display: block;
+    }
+
+    /* Vision & Mission */
+    .vm-block {
+      margin-top: 1.8rem;
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .vm-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--green);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .vm-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .vm-card.mission { border-left-color: var(--gold); }
+
+    .vm-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--green-dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .vm-card h3 i { color: var(--gold); font-size: 0.9rem; }
+
+    .vm-card p {
+      font-size: 0.93rem;
+      color: var(--text-mid);
+      margin: 0;
+    }
+
+    /* Timeline / Story */
+    .story-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .story-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--green), var(--gold));
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.6rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: 6px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--green);
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 3px rgba(26,124,74,0.2);
+    }
+
+    .timeline-year {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-text {
+      font-size: 0.91rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* ========== VISIT / EVENT ========== */
+    .event-section {
+      padding: 5rem 0;
+      background: #fff;
+    }
+
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) { .event-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .event-grid { grid-template-columns: 1fr; } }
+
+    /* In the visit section, showing 2 cards per line makes the inner images look bigger */
+    #visit .event-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 560px) {
+      #visit .event-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .event-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: rgba(26,124,74,0.3);
+    }
+
+    .event-card:hover::before { opacity: 1; }
+
+    .event-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--green), var(--green-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .event-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .event-card h3 a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .event-card h3 a:hover {
+      color: var(--green);
+      text-decoration: underline;
+    }
+
+    .event-card p {
+      font-size: 0.86rem;
+      color: var(--text-light);
+    }
+
+    /* ========== MASTERPLAN ========== */
+    .masterplan-section {
+      padding: 5rem 0;
+      background: linear-gradient(160deg, #0f5433 0%, #1a7c4a 100%);
+      position: relative;
+    }
+
+    .masterplan-section .section-title,
+    .masterplan-section .eyebrow,
+    .masterplan-section .section-subtitle { color: rgba(255,255,255,0.85); }
+
+    .masterplan-section .section-title { color: #fff; }
+
+    .masterplan-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.07); }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(10,40,20,0.92), transparent);
+      color: #fff;
+      padding: 1.2rem 1rem 0.7rem;
+      font-size: 0.82rem;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .gallery-item:hover .gallery-caption { transform: translateY(0); }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(5,20,10,0.97);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .lightbox.active { display: flex; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      text-align: center;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    .lightbox-caption {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+      margin-top: 1rem;
+    }
+
+    .lightbox-counter {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.8rem;
+      margin-top: 0.4rem;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      color: #fff;
+      cursor: pointer;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      transition: background 0.2s;
+      z-index: 10;
+    }
+
+    .lightbox-close { top: 20px; right: 24px; font-size: 1.6rem; }
+    .lightbox-prev { top: 50%; left: 24px; transform: translateY(-50%); }
+    .lightbox-next { top: 50%; right: 24px; transform: translateY(-50%); }
+
+    .lightbox-close:hover { background: rgba(220,30,30,0.7); }
+    .lightbox-prev:hover,
+    .lightbox-next:hover { background: rgba(255,255,255,0.25); }
+
+    /* ========== PROJECTS GALLERY ========== */
+    .gallery-section {
+      padding: 5rem 0;
+      background: var(--cream);
+    }
+
+    .projects-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) { .projects-gallery { grid-template-columns: 1fr; } }
+
+    .project-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-header {
+      padding: 1.2rem 1.4rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(26,124,74,0.05), rgba(200,146,42,0.05));
+    }
+
+    .project-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--green), var(--green-light));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .project-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .project-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+
+    .image-wrapper {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .image-wrapper img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .image-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15,84,51,0);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 1.4rem;
+      transition: background 0.25s;
+    }
+
+    .image-overlay i { opacity: 0; transform: scale(0.8); transition: all 0.25s; }
+
+    .image-wrapper:hover img { transform: scale(1.08); }
+    .image-wrapper:hover .image-overlay { background: rgba(15,84,51,0.45); }
+    .image-wrapper:hover .image-overlay i { opacity: 1; transform: scale(1); }
+
+    /* Gallery Lightbox */
+    .gallery-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(5,20,10,0.97);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gallery-lightbox.active { display: flex; }
+
+    .lightbox-image-wrapper img {
+      max-width: 90vw;
+      max-height: 75vh;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    .lightbox-info { margin-top: 1rem; text-align: center; }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .lightbox-nav:hover { background: rgba(255,255,255,0.25); }
+    .lightbox-prev { left: 24px; }
+    .lightbox-next { right: 24px; }
+
+    /* ========== CONTACT ========== */
+    .contact-section {
+      padding: 5rem 0;
+      background: #fff;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    .contact-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+
+    .contact-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      color: var(--text-dark);
+    }
+
+    .contact-list { list-style: none; }
+    .contact-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+
+    .contact-list li i {
+      color: var(--green);
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-list li a { color: var(--green); }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.65rem 0.9rem;
+      border: 1px solid rgba(26,124,74,0.2);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(26,124,74,0.1);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .btn-green {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      background: linear-gradient(135deg, var(--green), var(--green-light));
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .btn-green:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,124,74,0.35); }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: linear-gradient(160deg, #0a2d1a 0%, #0f5433 100%);
+      color: rgba(255,255,255,0.8);
+      padding: 3.5rem 0 1.5rem;
+      border-top: 3px solid var(--gold);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    .footer-brand { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+    .footer-brand img { height: 48px; filter: brightness(0) invert(1); opacity: 0.9; }
+    .footer-brand-text span { display: block; color: #fff; font-weight: 700; font-size: 0.9rem; }
+    .footer-brand-text span:last-child { font-size: 0.7rem; color: rgba(255,255,255,0.55); }
+    .footer-desc { font-size: 0.85rem; line-height: 1.7; }
+
+    .footer-heading { color: var(--gold-light); font-size: 0.88rem; font-weight: 700; margin-bottom: 0.8rem; }
+
+    .footer-list { list-style: none; }
+    .footer-list li { margin-bottom: 0.4rem; }
+    .footer-list a { font-size: 0.84rem; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+    .footer-list a:hover { color: var(--gold-light); }
+    .footer-list li:not(:has(a)) { font-size: 0.84rem; color: rgba(255,255,255,0.65); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.2rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ========== SCROLL REVEAL ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== MISC ========== */
+    section + section { /* spacing handled per section */ }
+
+    .section-subtitle {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    .divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+      border-radius: 2px;
+      margin: 0.8rem 0 1.2rem;
+    }
+
+    .center .divider { margin-left: auto; margin-right: auto; }
+
+    /* ========== MOBILE RESPONSIVE (NEW) ========== */
+    @media (max-width: 480px) {
+
+      /* Container padding */
+      .container { padding: 0 1rem; }
+
+      /* Header / Brand */
+      header { height: 62px; }
+      nav { top: 62px; height: calc(100vh - 62px); }
+      .brand img { height: 36px; }
+      .brand-text span { font-size: 0.78rem; }
+      .brand-text span:last-child { font-size: 0.62rem; }
+
+      /* Hero */
+      .hero { min-height: auto; padding-bottom: 0; }
+      .hero-inner { padding: 1.5rem 0 4rem; gap: 1.5rem; }
+      .hero-title { font-size: 1.75rem; }
+      .hero-sub { font-size: 0.9rem; }
+      .hero-badge { font-size: 0.68rem; }
+      .btn-primary, .btn-ghost {
+        padding: 0.65rem 1.2rem;
+        font-size: 0.85rem;
+        width: 100%;
+        justify-content: center;
+      }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .hero-stat-num { font-size: 1.3rem; }
+      .hero-stats { gap: 1rem; justify-content: space-around; }
+
+      /* About */
+      .about { padding: 3rem 0; }
+      .about-grid { gap: 2rem; }
+      .about-highlight { padding: 1rem 1.1rem; }
+      .about-highlight p { font-size: 0.88rem; }
+
+      /* Timeline */
+      .story-timeline { padding-left: 1.5rem; }
+      .timeline-item::before { left: -2rem; }
+
+      /* Events */
+      .event-section { padding: 3rem 0; }
+      .event-grid { grid-template-columns: 1fr; gap: 1rem; }
+      #visit .event-grid { grid-template-columns: 1fr; }
+      .event-card { padding: 1.1rem; }
+
+      /* Masterplan */
+      .masterplan-section { padding: 3rem 0; }
+      .masterplan-gallery { grid-template-columns: 1fr; }
+      .gallery-caption { transform: translateY(0); }
+
+      /* Lightbox nav on mobile */
+      .lightbox-prev { left: 8px; width: 38px; height: 38px; font-size: 1.1rem; }
+      .lightbox-next { right: 8px; width: 38px; height: 38px; font-size: 1.1rem; }
+      .lightbox-close { top: 12px; right: 12px; width: 38px; height: 38px; font-size: 1.2rem; }
+      .lightbox-nav { width: 38px; height: 38px; font-size: 1.1rem; }
+      .lightbox-nav.lightbox-prev { left: 8px; }
+      .lightbox-nav.lightbox-next { right: 8px; }
+
+      /* Gallery */
+      .gallery-section { padding: 3rem 0; }
+      .projects-gallery { gap: 1.2rem; }
+      .project-card { border-radius: var(--radius); }
+      .project-images { grid-template-columns: repeat(2, 1fr); }
+
+      /* Contact */
+      .contact-section { padding: 3rem 0; }
+      .contact-card { padding: 1.3rem; }
+      .contact-card h3 { font-size: 1rem; }
+      .contact-list li { font-size: 0.85rem; }
+      .form-group input,
+      .form-group textarea { font-size: 1rem; /* prevents iOS zoom */ }
+
+      /* Footer */
+      footer { padding: 2.5rem 0 1.2rem; }
+      .footer-grid { gap: 1.5rem; }
+      .footer-bottom { font-size: 0.72rem; }
+
+      /* Section headers */
+      .section-header-center { margin-bottom: 2rem; }
+      .section-subtitle { font-size: 0.87rem; }
+    }
+
+    /* Small phones (360px and below) */
+    @media (max-width: 360px) {
+      .hero-title { font-size: 1.5rem; }
+      .brand-text span { font-size: 0.72rem; }
+      .brand-text span:last-child { display: none; }
+      .hero-stats { gap: 0.7rem; }
+      .hero-stat-num { font-size: 1.1rem; }
+    }
+
+    /* Touch: always show gallery caption on mobile */
+    @media (hover: none) {
+      .gallery-caption { transform: translateY(0); }
+      .image-overlay { background: rgba(15,84,51,0.25); }
+      .image-overlay i { opacity: 1; transform: scale(1); }
+    }
+
+
+    /* ========== VISIT BLOG GRID (screenshot style) ========== */
+    .visit-blog-section {
+      padding: 5rem 0;
+      background: #fff;
+    }
+
+    .visit-blog-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem 1.6rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 992px) {
+      .visit-blog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .visit-blog-grid { grid-template-columns: 1fr; }
+    }
+
+    .blog-card {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .blog-card .blog-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--cream);
+      margin-bottom: 1rem;
+    }
+
+    .blog-card .blog-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .blog-card:hover .blog-thumb img { transform: scale(1.06); }
+
+    .blog-category {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.4;
+      margin-bottom: 0.6rem;
+      transition: color 0.2s;
+    }
+
+    .blog-card:hover .blog-title { color: var(--green); }
+
+    .blog-desc {
+      font-size: 0.86rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+
+    .blog-meta {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: auto;
+    }
+
+    /* Pagination */
+    .blog-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 3rem;
+    }
+
+    .blog-pagination button,
+    .blog-pagination .page-num {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .blog-pagination .page-num.active {
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .blog-pagination button:hover,
+    .blog-pagination .page-num:hover:not(.active) {
+      background: rgba(26,124,74,0.08);
+      color: var(--green);
+    }
+
+    @media (max-width: 480px) {
+      .visit-blog-section { padding: 3rem 0; }
+      .visit-blog-grid { gap: 1.5rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="container nav-inner">
+      <div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <img src="projects/assets/Logo.png" alt="Wamy Center Bangladesh Logo">
+        <div class="brand-text">
+          <span>Wamy Center Bangladesh</span>
+          <span>Humanity · Dignity · Hope</span>
+        </div>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav id="navMenu">
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#visit">Visit</a></li>
+          <li class="nav-dropdown">
+            <a href="#" id="projectLink">Projects ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="projects/mosque.html">Wamy Mosque Complex</a></li>
+              <li><a href="projects/madrasa.html">Wamy Model Madrasa</a></li>
+              <li><a href="projects/school.html">Wamy Collegiate School</a></li>
+              <li><a href="projects/homes.html">Wamy Dream Homes</a></li>
+              <li><a href="projects/it-center.html">Wamy IT Center</a></li>
+              <li><a href="projects/library.html">Wamy General Library</a></li>
+              <li><a href="projects/construction.html">Construction & Development</a></li>
+              <li><a href="projects/agro.html">Nadawa Agro Project</a></li>
+            </ul>
+          </li>
+          <li><a href="#visit-blog-section">Daily Activities</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="projects/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              Registered Voluntary Organization · Dhaka, Bangladesh
+            </div>
+            <h1 class="hero-title">
+              Wamy <span>Center</span>
+            </h1>
+            <p class="hero-sub">
+              Standing beside Bangladesh's youth since 1981 through education, health, skill development, and humanitarian support.
+            </p>
+            <div class="hero-actions">
+              <a href="#about" class="btn-primary"><i class="fas fa-info-circle"></i> Learn About Us</a>
+              <a href="#gallery" class="btn-ghost"><i class="fas fa-images"></i> View Gallery</a>
+            </div>
+            <div class="hero-stats">
+              <div class="hero-stat-item">
+                <div class="hero-stat-num">7 Acres</div>
+                <div class="hero-stat-label">Own Land</div>
+              </div>
+              <div class="hero-stat-item">
+                <div class="hero-stat-num">1981</div>
+                <div class="hero-stat-label">Founded</div>
+              </div>
+              <div class="hero-stat-item">
+                <div class="hero-stat-num">8+</div>
+                <div class="hero-stat-label">Active Projects</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- HERO SLIDER: 4 pictures, one after another -->
+          <div class="hero-visual reveal">
+            <div class="hero-slider" id="heroSlider">
+              <img class="hero-slide base active" src="projects/assets/images/wamy center.jpeg" alt="Wamy Center Bangladesh">
+              <img class="hero-slide" src="projects/assets/images/masterplan-6.jpg" alt="Wamy Center Bangladesh">
+              <img class="hero-slide" src="projects/assets/images/wamy center1.jpeg" alt="Wamy Center Bangladesh">
+              <img class="hero-slide" src="projects/assets/images/masterplan-7.jpg" alt="Wamy Center Bangladesh">
+
+              <div class="hero-dots">
+                <span class="hero-dot active"></span>
+                <span class="hero-dot"></span>
+                <span class="hero-dot"></span>
+                <span class="hero-dot"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / HISTORY -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-body reveal">
+
+            <h2 class="section-title">Vision and <span>  Mission</span></h2>
+            <div class="divider"></div>
+
+
+            <!-- VISION & MISSION -->
+            <div class="vm-block">
+              <div class="vm-card vision">
+                <h3><i class="fas fa-eye"></i> Vision</h3>
+                <p>To build an ideal generation with ethics, knowledge, skill, and human values, who will lead the nation and humanity by guiding their lives in the light of the Quran and Sunnah.</p>
+              </div>
+              <div class="vm-card mission">
+                <h3><i class="fas fa-bullseye"></i> Mission</h3>
+                <p>To build an ideal, leadership-oriented generation through education, character building, skill development, and humanitarian service in the light of the Quran and Sunnah.</p>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="story-timeline reveal" style="transition-delay: 0.15s">
+            <span class="eyebrow" style="display:block; margin-bottom: 1.2rem;">Key Milestones</span>
+
+            <div class="timeline-item">
+              <div class="timeline-year">1981</div>
+              <div class="timeline-text">A joint initiative of the Government of Bangladesh and WAMY held an International Youth Conference. President Ziaur Rahman allocated 7 acres of land.</div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-year">November 2024</div>
+              <div class="timeline-text">Official inauguration of the Wamy Mosque Complex and Development Center in the first building, according to the master plan.</div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-year">30 May 2026</div>
+              <div class="timeline-text">Delegates of Multaqa Mutatawwi'in fi Bangladesh visited the Wamy Center. The visit included a Qurbani program, school and madrasa tours, a science fair, and a lunch reception.</div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-year">Future Plans</div>
+              <div class="timeline-text">Preparations are underway to begin construction of the hospital and school. Work continues toward building the full complex according to the master plan.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- MASTERPLAN GALLERY -->
+    <section id="masterplan-image" class="masterplan-section">
+      <div class="container">
+        <div class="section-header-center reveal">
+          <span class="eyebrow" style="color: rgba(255,255,255,0.6);">Future Plans</span>
+          <h2 class="section-title" style="color:#fff; text-align:center;">Master Plan</h2>
+          <p class="section-subtitle" style="color: rgba(255,255,255,0.7); text-align:center;">Wamy Center Bangladesh — Complete Complex Design View</p>
+        </div>
+
+        <div class="masterplan-gallery">
+          <div class="gallery-item" onclick="openLightbox(0)">
+            <img src="projects/assets/images/masterplan-1.jpg" alt="East View">
+            <div class="gallery-caption"><i class="fas fa-search-plus"></i> East View</div>
+          </div>
+
+          <div class="gallery-item" onclick="openLightbox(2)">
+            <img src="projects/assets/images/masterplan-3.jpg" alt="Sky View West">
+            <div class="gallery-caption"><i class="fas fa-cloud"></i> Sky View (West)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(3)">
+            <img src="projects/assets/images/masterplan-4.jpg" alt="Sky View East">
+            <div class="gallery-caption"><i class="fas fa-cloud-sun"></i> Sky View (East)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(4)">
+            <img src="projects/assets/images/masterplan-5.jpg" alt="Road View">
+            <div class="gallery-caption"><i class="fas fa-road"></i> Road View</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(5)">
+            <img src="projects/assets/images/masterplan-6.jpg" alt="Entrance View">
+            <div class="gallery-caption"><i class="fas fa-door-open"></i> Entrance View</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(6)">
+            <img src="projects/assets/images/masterplan-7.jpg" alt="Entrance East View">
+            <div class="gallery-caption"><i class="fas fa-directions"></i> Entrance East View</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(7)">
+            <img src="projects/assets/images/masterplan-8.jpg" alt="Health Center">
+            <div class="gallery-caption"><i class="fas fa-hospital"></i> Health Center</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(8)">
+            <img src="projects/assets/images/masterplan-9.jpg" alt="Health Center 2">
+            <div class="gallery-caption"><i class="fas fa-clinic-medical"></i> Health Center</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Masterplan Lightbox -->
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close" onclick="closeMasterplan()">&times;</span>
+      <span class="lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
+      <span class="lightbox-next" onclick="changeImage(1)">&#10095;</span>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+        <div id="lightbox-counter" class="lightbox-counter"></div>
+      </div>
+    </div>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery-section">
+      <div class="container">
+        <div class="section-header-center reveal">
+          <span class="eyebrow">Photo Gallery</span>
+          <h2 class="section-title" style="text-align:center;">Our <span style="color:var(--green);">Projects</span></h2>
+          <div class="divider center" style="margin: 0.8rem auto 0;"></div>
+          <p class="section-subtitle" style="text-align:center; margin-top: 0.6rem;">Every image is a step toward a better future.</p>
+        </div>
+
+        <div class="projects-gallery">
+          <div class="project-card reveal">
+            <div class="project-header">
+              <div class="project-icon"><i class="fas fa-mosque"></i></div>
+              <h3 class="project-title">Wamy Mosque Complex</h3>
+            </div>
+            <div class="project-images">
+              <div class="image-wrapper" onclick="openProjectGallery(0, 0)">
+                <img src="projects/assets/images/Wamy Mosque/mosque4.jpeg" alt="Mosque">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+              <div class="image-wrapper" onclick="openProjectGallery(0, 1)">
+                <img src="projects/assets/images/Wamy Mosque/mosque3.jpeg" alt="Mosque">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card reveal" style="transition-delay:0.1s">
+            <div class="project-header">
+              <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
+              <h3 class="project-title">Wamy Model Madrasa</h3>
+            </div>
+            <div class="project-images">
+              <div class="image-wrapper" onclick="openProjectGallery(1, 0)">
+                <img src="projects/assets/images/Wamy Model Madrasa/wamy model3.jpeg" alt="Madrasa">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+              <div class="image-wrapper" onclick="openProjectGallery(1, 1)">
+                <img src="projects/assets/images/Wamy Model Madrasa/wamy model2.jpeg" alt="Madrasa">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-header">
+              <div class="project-icon"><i class="fas fa-laptop-code"></i></div>
+              <h3 class="project-title">Wamy IT Center</h3>
+            </div>
+            <div class="project-images">
+              <div class="image-wrapper" onclick="openProjectGallery(2, 0)">
+                <img src="projects/assets/images/It center/wamy it center 1.jpeg" alt="IT Center">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+              <div class="image-wrapper" onclick="openProjectGallery(2, 1)">
+                <img src="projects/assets/images/It center/wamy it center 2.jpeg" alt="IT Center">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card reveal" style="transition-delay:0.1s">
+            <div class="project-header">
+              <div class="project-icon"><i class="fas fa-home"></i></div>
+              <h3 class="project-title">Wamy Dream Homes</h3>
+            </div>
+            <div class="project-images">
+              <div class="image-wrapper" onclick="openProjectGallery(3, 0)">
+                <img src="projects/assets/images/Dream_Homes/dre1.jpeg" alt="Dream Homes">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+              <div class="image-wrapper" onclick="openProjectGallery(3, 1)">
+                <img src="projects/assets/images/Dream_Homes/dre2.jpeg" alt="Dream Homes">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-header">
+              <div class="project-icon"><i class="fas fa-school"></i></div>
+              <h3 class="project-title">Wamy Collegiate School</h3>
+            </div>
+            <div class="project-images">
+              <div class="image-wrapper" onclick="openProjectGallery(4, 0)">
+                <img src="projects/assets/images/School/school1.jpeg" alt="School">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+              <div class="image-wrapper" onclick="openProjectGallery(4, 1)">
+                <img src="projects/assets/images/School/school2.jpeg" alt="School">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card reveal" style="transition-delay:0.1s">
+            <div class="project-header">
+              <div class="project-icon"><i class="fas fa-book-reader"></i></div>
+              <h3 class="project-title">Wamy General Library</h3>
+            </div>
+            <div class="project-images">
+              <div class="image-wrapper" onclick="openProjectGallery(5, 0)">
+                <img src="projects/assets/images/Library/lib17.jpeg" alt="Library">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+              <div class="image-wrapper" onclick="openProjectGallery(5, 1)">
+                <img src="projects/assets/images/Library/lib01.jpeg" alt="Library">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-header">
+              <div class="project-icon"><i class="fas fa-hard-hat"></i></div>
+              <h3 class="project-title">Construction & Development</h3>
+            </div>
+            <div class="project-images">
+              <div class="image-wrapper" onclick="openProjectGallery(6, 0)">
+                <img src="projects/assets/images/Construction & Development/cad11.jpeg" alt="Construction">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+              <div class="image-wrapper" onclick="openProjectGallery(6, 1)">
+                <img src="projects/assets/images/Construction & Development/cad12.jpeg" alt="Construction">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card reveal" style="transition-delay:0.1s">
+            <div class="project-header">
+              <div class="project-icon"><i class="fas fa-seedling"></i></div>
+              <h3 class="project-title">Nadawa Agro Project</h3>
+            </div>
+            <div class="project-images">
+              <div class="image-wrapper" onclick="openProjectGallery(7, 0)">
+                <img src="projects/assets/images/Nadawa Agro Project/agero11.jpeg" alt="Agro">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+              <div class="image-wrapper" onclick="openProjectGallery(7, 1)">
+                <img src="projects/assets/images/Nadawa Agro Project/agro12.jpeg" alt="Agro">
+                <div class="image-overlay"><i class="fas fa-search-plus"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Gallery Lightbox -->
+    <div id="gallery-lightbox" class="gallery-lightbox">
+      <button class="lightbox-close" onclick="closeGalleryLightbox()">&times;</button>
+      <button class="lightbox-nav lightbox-prev" onclick="navigateImage(-1)">&#10094;</button>
+      <button class="lightbox-nav lightbox-next" onclick="navigateImage(1)">&#10095;</button>
+      <div class="lightbox-content">
+        <div class="lightbox-image-wrapper">
+          <img id="lightbox-image" src="" alt="">
+        </div>
+        <div class="lightbox-info">
+          <h3 id="lightbox-title" style="color:#fff;"></h3>
+          <p id="lightbox-counter" style="color:rgba(255,255,255,0.45);"></p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- VISIT BLOG SECTION -->
+    <section class="visit-blog-section" id="visit">
+      <div class="container">
+        <div class="section-header-center reveal">
+          <span class="eyebrow">Activities</span>
+          <h2 class="section-title" style="text-align:center;">Our Daily <span style="color:var(--green);">Activities</span></h2>
+          <div class="divider center" style="margin: 0.8rem auto 0;"></div>
+          <p class="section-subtitle" style="text-align:center; margin-top: 0.6rem;">Full program from the 11 AM arrival to the afternoon event</p>
+        </div>
+
+        <div class="visit-blog-grid">
+
+          <!-- 1. Formal Reception -->
+          <a class="blog-card reveal" href="https://www.youtube.com/watch?v=DLSUSLUBZYE" target="_blank" rel="noopener noreferrer">
+            <div class="blog-thumb">
+              <img src="projects/assets/images/web/wa1.jpeg" alt="Formal Reception">
+            </div>
+            <span class="blog-category">Visit</span>
+            <h3 class="blog-title"> Saudi Arabia National Day Celebration</h3>
+            <p class="blog-desc">The Saudi National Day[a] is an official public holiday in Saudi Arabia celebrated annually on 23 September. </p>
+            <div class="blog-meta">23/9/2026 · 2 min read</div>
+          </a>
+
+
+          <!-- 1. pcsdp -->
+          <a class="blog-card reveal" href="https://www.youtube.com/watch?v=DLSUSLUBZYE" target="_blank" rel="noopener noreferrer">
+            <div class="blog-thumb">
+              <img src="projects/assets/images/web/pcsdp.jpeg" alt="Formal Reception">
+            </div>
+            <span class="blog-category">Visit</span>
+            <h3 class="blog-title">PCSDP Program</h3>
+            <p class="blog-desc">Orphan students of Wamy Dream Homes welcomed the honored guests with a formal march-past.</p>
+            <div class="blog-meta">30/5/2026 · 2 min read</div>
+          </a>
+
+          <!-- 2. Qurbani Program -->
+          <a class="blog-card reveal" style="transition-delay:0.08s" href="https://www.youtube.com/watch?v=DLSUSLUBZYE" target="_blank" rel="noopener noreferrer">
+            <div class="blog-thumb">
+              <img src="projects/assets/images/web/kur1.JPG" alt="Qurbani Program">
+            </div>
+            <span class="blog-category">Visit</span>
+            <h3 class="blog-title">Qurbani Program</h3>
+            <p class="blog-desc">Guests took part in the Qurbani program at the start of the visit. Afterward, meat was distributed to 400 underprivileged families.</p>
+            <div class="blog-meta">30/5/2026 · 2 min read</div>
+          </a>
+
+          <!-- 3. School and Madrasa Visit -->
+          <a class="blog-card reveal" style="transition-delay:0.12s" href="https://www.youtube.com/watch?v=DLSUSLUBZYE" target="_blank" rel="noopener noreferrer">
+            <div class="blog-thumb">
+              <img src="projects/assets/images/web/wmm1.JPG" alt="School and Madrasa Visit">
+            </div>
+            <span class="blog-category">Visit</span>
+            <h3 class="blog-title">School and Madrasa Visit</h3>
+            <p class="blog-desc">The ground-floor school and Nurani Madrasa were toured, students' activities were enjoyed, and gifts were distributed.</p>
+            <div class="blog-meta">30/5/2026 · 2 min read</div>
+          </a>
+
+          <!-- 4. Prize Distribution -->
+          <a class="blog-card reveal" style="transition-delay:0.16s" href="https://www.youtube.com/watch?v=DLSUSLUBZYE" target="_blank" rel="noopener noreferrer">
+            <div class="blog-thumb">
+              <img src="projects/assets/images/web/priz1.JPG" alt="Prize Distribution">
+            </div>
+            <span class="blog-category">Visit</span>
+            <h3 class="blog-title">Prize Distribution</h3>
+            <p class="blog-desc">Prizes were distributed to the winners of the quiz and Quran recitation competition held during Ramadan.</p>
+            <div class="blog-meta">30/5/2026 · 2 min read</div>
+          </a>
+
+          <!-- 5. Science Fair -->
+          <a class="blog-card reveal" style="transition-delay:0.2s" href="https://www.youtube.com/watch?v=DLSUSLUBZYE" target="_blank" rel="noopener noreferrer">
+            <div class="blog-thumb">
+              <img src="projects/assets/images/web/sci1.JPG" alt="Science Fair">
+            </div>
+            <span class="blog-category">Visit</span>
+            <h3 class="blog-title">Science Fair</h3>
+            <p class="blog-desc">Orphan children of Dream Homes displayed science projects on the fourth floor and answered guests' questions.</p>
+            <div class="blog-meta">30/5/2026 · 2 min read</div>
+          </a>
+
+          <!-- 6. Traditional Hospitality -->
+          <a class="blog-card reveal" style="transition-delay:0.24s" href="https://www.youtube.com/watch?v=DLSUSLUBZYE" target="_blank" rel="noopener noreferrer">
+            <div class="blog-thumb">
+              <img src="projects/assets/images/web/dis1.JPG" alt="Traditional Hospitality">
+            </div>
+            <span class="blog-category">Visit</span>
+            <h3 class="blog-title">Traditional Hospitality</h3>
+            <p class="blog-desc">Mothers of madrasa students prepared traditional Bangladeshi food. Lunch was served in the dining room on the 6th floor.</p>
+            <div class="blog-meta">30/5/2026 · 1 min read</div>
+          </a>
+
+        </div>
+
+        <!-- Pagination (visual; currently shows all items on page 1) -->
+        <div class="blog-pagination">
+          <button aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+          <span class="page-num active">1</span>
+          <button aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-header-center reveal">
+          <span class="eyebrow">Get in Touch</span>
+          <h2 class="section-title" style="text-align:center;">Talk to <span style="color:var(--green);">Us</span></h2>
+          <div class="divider center" style="margin: 0.8rem auto 0;"></div>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <h3>Contact Information</h3>
+            <ul class="contact-list">
+              <li><i class="fas fa-map-marker-alt"></i> <span>Head Office, Dhaka, Bangladesh</span></li>
+              <li><i class="fas fa-phone"></i> <span>+880 1XXXXXXXXX</span></li>
+              <li><i class="fas fa-envelope"></i> <a href="mailto:info@wamycenter.org">info@wamycenter.org</a></li>
+              <li><i class="fab fa-facebook"></i> <a href="https://facebook.com/wamycenterbd" target="_blank">/wamycenterbd</a></li>
+              <li><i class="fab fa-youtube"></i> <span>@wamycenterbd</span></li>
+            </ul>
+          </div>
+          <div class="contact-card reveal" style="transition-delay:0.12s">
+            <h3>Send a Message</h3>
+            <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent.');">
+              <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" required placeholder="Enter your name">
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" required placeholder="email@example.com">
+              </div>
+              <div class="form-group">
+                <label>Message</label>
+                <textarea required placeholder="Write your message..."></textarea>
+              </div>
+              <button class="btn-green" type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="projects/assets/Logo.png" alt="Wamy Center Logo">
+            <div class="footer-brand-text">
+              <span>Wamy Center Bangladesh</span>
+              <span>Registered NGO · Dhaka, Bangladesh</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            We believe in transparency, dignity, and empathy. Your support, when it reaches the right hands, brings lasting change.
+          </p>
+        </div>
+
+        <div>
+          <p class="footer-heading">Quick Links</p>
+          <ul class="footer-list">
+            <li><a href="#about">Our History</a></li>
+            <li><a href="#visit">Visit Details</a></li>
+            <li><a href="#masterplan-image">Master Plan</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-heading">Office & Contact</p>
+          <ul class="footer-list">
+            <li>Office Address: Wamy Center, Shafipur, Gazipur</li>
+            <li>Mobile: +880 1812745979</li>
+            <li>Email: info@wamycenter.org</li>
+            <li>Facebook / YouTube: @wamycenterbd</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 Wamy Center Bangladesh · Registered Voluntary Organization · All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <script src="projects/js/gallery.js" crossorigin="anonymous"></script>
+  <script>
+    // NAV TOGGLE
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      const icon = navToggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+
+    // DROPDOWN (click still works for mobile / touch; hover is handled purely by CSS on desktop)
+    document.getElementById('projectLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      e.target.parentElement.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.dropdown-menu a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.querySelector('.nav-dropdown').classList.remove('open');
+      });
+    });
+
+    navMenu.querySelectorAll('a:not(#projectLink)').forEach(a => {
+      a.addEventListener('click', () => {
+        if (window.innerWidth <= 992) navMenu.classList.remove('open');
+      });
+    });
+
+    // SCROLL REVEAL
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => revealObs.observe(el));
+
+    // MASTERPLAN LIGHTBOX
+    const mpImages = [
+      { src: 'projects/assets/images/masterplan-1.jpg', caption: 'East View' },
+      { src: 'projects/assets/images/masterplan-2.jpg', caption: 'West View' },
+      { src: 'projects/assets/images/masterplan-3.jpg', caption: 'Sky View (West)' },
+      { src: 'projects/assets/images/masterplan-4.jpg', caption: 'Sky View (East)' },
+      { src: 'projects/assets/images/masterplan-5.jpg', caption: 'Road View' },
+      { src: 'projects/assets/images/masterplan-6.jpg', caption: 'Entrance View' },
+      { src: 'projects/assets/images/masterplan-7.jpg', caption: 'Entrance East View' },
+      { src: 'projects/assets/images/masterplan-8.jpg', caption: 'Health Center' },
+      { src: 'projects/assets/images/masterplan-9.jpg', caption: 'Health Center' }
+    ];
+    let mpIdx = 0;
+
+    function openLightbox(i) {
+      mpIdx = i;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      updateMasterplanImg();
+    }
+
+    function closeMasterplan() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function changeImage(dir) {
+      mpIdx = (mpIdx + dir + mpImages.length) % mpImages.length;
+      updateMasterplanImg();
+    }
+
+    function updateMasterplanImg() {
+      document.getElementById('lightbox-img').src = mpImages[mpIdx].src;
+      document.getElementById('lightbox-caption').textContent = mpImages[mpIdx].caption;
+      document.getElementById('lightbox-counter').textContent = (mpIdx + 1) + ' / ' + mpImages.length;
+    }
+
+    // ================= VISIT SECTION GALLERY LIGHTBOX =================
+    function buildVisitData() {
+      const cards = document.querySelectorAll('#visit .event-card');
+      return Array.from(cards).map(card => {
+        const title = card.querySelector('h3')?.textContent.trim() || '';
+        const imgs = Array.from(card.querySelectorAll('.image-wrapper img')).map(img => img.getAttribute('src'));
+        return { title, imgs };
+      });
+    }
+
+    const visitData = buildVisitData();
+    let currentVisitImages = [];
+    let currentVisitTitle = '';
+    let currentVisitIndex = 0;
+
+    function openVisitGallery(cardIdx, imageIdx) {
+      const card = visitData[cardIdx];
+      if (!card || !card.imgs.length) return;
+      currentVisitImages = card.imgs;
+      currentVisitTitle = card.title;
+      currentVisitIndex = imageIdx;
+
+      // Reusing the project-gallery lightbox here
+      currentProjectImages = currentVisitImages;
+      currentProjectTitle = currentVisitTitle;
+      currentImageIndex = currentVisitIndex;
+
+      document.getElementById('gallery-lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      updateGalleryLightbox();
+    }
+    // ================================================================
+
+    // ================= PROJECT GALLERY LIGHTBOX =================
+    function buildProjectsData() {
+      const cards = document.querySelectorAll('.projects-gallery .project-card');
+      return Array.from(cards).map(card => {
+        const title = card.querySelector('.project-title')?.textContent.trim() || '';
+        const imgs = Array.from(card.querySelectorAll('.image-wrapper img')).map(img => img.getAttribute('src'));
+        return { title, imgs };
+      });
+    }
+
+    const projectsData = buildProjectsData();
+    let currentProjectImages = [];
+    let currentProjectTitle = '';
+    let currentImageIndex = 0;
+
+    function openProjectGallery(projectIdx, imageIdx) {
+      const project = projectsData[projectIdx];
+      if (!project || !project.imgs.length) return;
+      currentProjectImages = project.imgs;
+      currentProjectTitle = project.title;
+      currentImageIndex = imageIdx;
+
+      document.getElementById('gallery-lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      updateGalleryLightbox();
+    }
+
+    function updateGalleryLightbox() {
+      document.getElementById('lightbox-image').src = currentProjectImages[currentImageIndex];
+      document.getElementById('lightbox-title').textContent = currentProjectTitle;
+      document.getElementById('lightbox-counter').textContent = (currentImageIndex + 1) + ' / ' + currentProjectImages.length;
+    }
+
+    function navigateImage(dir) {
+      if (!currentProjectImages.length) return;
+      currentImageIndex = (currentImageIndex + dir + currentProjectImages.length) % currentProjectImages.length;
+      updateGalleryLightbox();
+    }
+
+    function closeGalleryLightbox() {
+      document.getElementById('gallery-lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    // ================================================================
+
+    window.addEventListener('click', e => {
+      if (e.target === document.getElementById('lightbox')) closeMasterplan();
+      if (e.target === document.getElementById('gallery-lightbox')) closeGalleryLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeMasterplan(); closeGalleryLightbox(); }
+      if (e.key === 'ArrowRight') { changeImage(1); navigateImage(1); }
+      if (e.key === 'ArrowLeft') { changeImage(-1); navigateImage(-1); }
+    });
+
+    // ================= HERO SLIDER (NEW) =================
+    (function () {
+      const slides = document.querySelectorAll('.hero-slide');
+      const dots = document.querySelectorAll('.hero-dot');
+      let current = 0;
+      let timer;
+
+      function showSlide(i) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (i + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+
+      function start() {
+        timer = setInterval(() => showSlide(current + 1), 4000); // 4 seconds
+      }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          clearInterval(timer);
+          showSlide(i);
+          start();
+        });
+      });
+
+      start();
+    })();
+    // ================================================================
+  </script>
+</body>
+</html>
